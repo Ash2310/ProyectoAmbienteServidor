@@ -15,7 +15,7 @@ Class ClasePersona {
 
     /* ===== Constructor ====== */
 
-    function ClasePersonas() {
+    function ClasePersona() {
         $this->id = "";
         $this->cedula = "";
         $this->nombre = "";

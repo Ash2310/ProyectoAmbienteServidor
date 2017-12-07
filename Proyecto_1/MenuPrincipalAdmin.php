@@ -2,8 +2,8 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- <title>MenuPrincipalCliente</title>
-<link rel="icon" href="Imagenes/2.png">
+ <title>MenuPrincipalAdimin</title>
+<link rel="icon" href="Imagenes/1.png">
  <!-- Bootstrap core CSS -->
  <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,14 +26,14 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="Imagenes/s.png" alt="First slide">
+            <img class="first-slide" src="Imagenes/Step.png" alt="First slide">
 
           </div>
           <div class="carousel-item">
-            <img class="second-slide" src="Imagenes/Step.png" alt="Second slide">
+            <img class="second-slide" src="Imagenes/Stephanie.png" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="Imagenes/Stephanie.png" alt="Third slide">
+            <img class="third-slide" src="Imagenes/s.png" alt="Third slide">
 
           </div>
         </div>
@@ -58,18 +58,21 @@
         <div class="row">
           <div class="col-lg-4">
             <img class="rounded-circle" src="Imagenes/Uicon.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Mi Perfil</h2>
-
-            <p><a class="btn btn-secondary" href="MiPerfil.php" role="button">Seleccionar</a></p>
+            <h2>Mantenimiento Usuario</h2>
+            <p>Se realizan los matentenimentos básicos de un usuario.</p>
+            <p><a class="btn btn-secondary" href="MantenimientoUsuario.php" role="button">Seleccionar</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-
+            <img class="rounded-circle" src="Imagenes/mantenimiento-ico.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Mantenimiento Articulo</h2>
+            <p>Se realizan los matentenimentos básicos de un articulo.</p>
+            <p><a class="btn btn-secondary" href="MantenimientoProducto.php" role="button">Seleccionar</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="Imagenes/1205.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Carrito de Compras</h2>
-
-            <p><a class="btn btn-secondary" href="#" role="button">Seleccionar</a></p>
+            <img class="rounded-circle" src="Imagenes/compra.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Mantenimiento Compra</h2>
+            <p>Se realizan los matentenimentos básicos de una Compra.</p>
+            <p><a class="btn btn-secondary" href="MantenimientoCompra.php" role="button">Seleccionar</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -82,7 +85,7 @@
           <div class="col-md-7">
             <h2 class="featurette-heading"><span class="text-muted">Infromación</span></h2>
             <p class="lead"> Somos una pequeña joyería que esta para brindar sus servicios.</p>
-<img class="rounded-circle" src="Imagenes/ubicacion.png" alt="Generic placeholder image" width="40" height="40">
+            <img class="rounded-circle" src="Imagenes/ubicacion.png" alt="Generic placeholder image" width="40" height="40">
           <p><span class="text-muted"> Ubicación:</span>Guápiles</p>
           <img class="rounded-circle" src="Imagenes/telefono.jpg" alt="Generic placeholder image" width="40" height="40">
           </div>
@@ -99,7 +102,7 @@
 
       <!-- FOOTER -->
       <footer class="container">
-        <p>&copy; 2017 Stephanie joyeria</a>   <button class="btn btn-outline-success my-2 my-sm-0" type="button">cerra sesion</button>
+        <p>@ 2017 Stephanie joyeria</a>   <button class="btn btn-outline-success my-2 my-sm-0" type="button">cerra sesion</button>
 </p>
       </footer>
 

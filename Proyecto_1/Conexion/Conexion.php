@@ -1,7 +1,7 @@
 <?php
 //Variables para realizar la conexión
 $hostname= "localhost";
-$database= "proyectofinal";
+$database= "mi_sitio";
 $username= "root";
 $contrasena= "Ashley-23";
 
