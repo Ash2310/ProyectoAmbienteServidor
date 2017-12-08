@@ -11,7 +11,10 @@ $Usuario = new ClaseProducto();
     <link rel="icon" href="Imagenes/2.png">
      <!-- Bootstrap core CSS -->
      <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
+     <script src="Js/plugins/jquery/external/jquery/jquery.js" type="text/javascript"></script>
+       <script src="Js/plugins/jquery/jquery-ui.js" type="text/javascript"></script>
+       <link href="Js/plugins/jquery/jquery-ui.css" rel="stylesheet" type="text/css"/>
+       <script src="Js/Scripts/Articulo.js" type="text/javascript"></script>
      <!-- Custom styles for this template -->
      <link href="CSS/carousel.css" rel="stylesheet">
   </head>
@@ -76,7 +79,7 @@ $Usuario = new ClaseProducto();
 
         <div class="row featurette" id="#2">
           <Center>
-          <form name="frmCreararticulo" method="POST" action="">
+          <form name="frmCrearArticulo" method="POST" action="">
                 <input type="text" name="Codigo" class="form-control" placeholder="Digite el codigo del articulo" value=""><br/>
                 <input type="text" name="Marca" class="form-control" placeholder="Digite el nombre del Articulo" value=""><br/>
                 <input type="text" name="Descripcion" class="form-control" placeholder="Digite la descripcion de articulo" value=""><br/>
@@ -94,10 +97,10 @@ $Usuario = new ClaseProducto();
 
         <div class="row featurette" id="#3">
           <div class="form-busqueda">
-          <form id="frmBuscaArticulo" name="frmBuscaArticulo" method="post" action="">
-              <input class="form-control" type="text" name="codigo_busqueda" placeholder="Digite el email" value="">
+          <form id="frmBuscarArticulo" name="frmBuscarArticulo" method="post" action="">
+              <input class="form-control" type="text" name="codigo_busqueda" placeholder="Digite el codigo" value="">
               <input type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
-              <input class="btn btn-primary" type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Articulo">
+              <input class="btn btn-primary" type="button" id="btnBuscarArticulo" name="btnBuscarArticulo" value="Buscar Articulo">
           </form>
       </div>
       <div class="form-datos">

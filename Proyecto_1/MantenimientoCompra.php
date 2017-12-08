@@ -11,7 +11,10 @@ $Usuario = new ClaseCompra();
     <link rel="icon" href="Imagenes/2.png">
      <!-- Bootstrap core CSS -->
      <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
+     <script src="Js/plugins/jquery/external/jquery/jquery.js" type="text/javascript"></script>
+       <script src="Js/plugins/jquery/jquery-ui.js" type="text/javascript"></script>
+       <link href="Js/plugins/jquery/jquery-ui.css" rel="stylesheet" type="text/css"/>
+       <script src="Js/Scripts/Compra.js" type="text/javascript"></script>
      <!-- Custom styles for this template -->
      <link href="CSS/carousel.css" rel="stylesheet">
   </head>

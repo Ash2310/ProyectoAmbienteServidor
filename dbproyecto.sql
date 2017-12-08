@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
-<<<<<<< HEAD
 -- Tiempo de generación: 08-12-2017 a las 05:27:27
-=======
--- Tiempo de generación: 08-12-2017 a las 04:53:31
->>>>>>> b680b31fe74756bc0eb913ba4f758db27d365040
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 5.6.31
 
@@ -21,9 +17,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
+use bd_misitio;
 --
--- Base de datos: `dbproyecto`
+-- Base de datos: `bd_misitio`
 --
 
 -- --------------------------------------------------------
