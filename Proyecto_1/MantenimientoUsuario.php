@@ -28,7 +28,21 @@ $Usuario = new ClasePersona();
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#1">Lista de usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#2">Crear usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#3">Modificación</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
 
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerra Sesión</button>
+          </form>
         </div>
       </nav>
     </header>
@@ -40,17 +54,17 @@ $Usuario = new ClasePersona();
 
         <hr class="featurette-divider">
 
-        <div class="row featurette" >
+        <div class="row featurette" id="#1">
           <div class="container" align="center">
           <h2>Lista de usuarios</h2>
  <p>Registro de usuarios</p>
- <table class="table table-striped" >
+ <table class="table table-dark table-hover" >
 
   <?php
   $resultado = $Usuario->ListarUsuarios() ;
   if ($resultado["valido"]) {
 
-    echo "<tr class='table-info' >"
+    echo "<tr class='table-success' >"
 ."<td>Cedula</td>"
 ."<td>Nombre</td>"
 ."<td>Apellidos</td>"
@@ -82,47 +96,36 @@ $Usuario = new ClasePersona();
 
         <hr class="featurette-divider">
 
-        <div class="row featurette" >
-          <Center>
-            <form id="frmCrearUsuario" name="frmCrearUsuario" method="POST" action="">
-              <h3>Fomulario de Registro</h3> <br>
-                    <input class="form-control" id="cedula" type="text" name="cedula" placeholder="Digite su Cédula" value=""><br/>
-                    <input class="form-control" id="nombre" type="text" name="nombre" placeholder="Digite su Nombre" value=""><br/>
-                    <input class="form-control" id="apellidos" type="text" name="apellidos" placeholder="Digite sus Apellidos" value=""><br/>
-                    <input class="form-control"  id="telefono" type="text" name="telefono" placeholder="Digite su Teléfono" value=""><br/>
-                    <input class="form-control" id="email" type="email" name="email" placeholder="Digite su Email" value=""><br/>
-                      <input class="form-control" id="usuario" type="text" name="usuario" placeholder="Digite su Usuario" value=""><br/>
-                    <input  class="form-control" id="contrasena"type="password" name="contrasena" placeholder="Digite su Contraseña" value=""><br/>
-                    <select class="form-control" id="rol" name="rol">
-                        <option value="0">Seleccione</option>
-                        <option value="admin">Administrador</option>
-                        <option value="visitante">Visitante</option>
-                    </select> <br>
-
-                    <input  class="btn btn-info"type="button" id="btnCrearUsuario" name="btnCrearUsuario" value="Crear Usuario">
-                </form>
-
-          </Center>
+        <div class="row featurette" id="#2">
+          <form id="frmCrearUsuario" name="frmCrearUsuario" method="POST" action="">
+                  <input type="text" name="cedula" placeholder="Digite su cédula" value=""><br/>
+                  <input type="text" name="nombre" placeholder="Digite su nombre" value=""><br/>
+                  <input type="text" name="apellidos" placeholder="Digite sus apellidos" value=""><br/>
+                  <input type="text" name="telefono" placeholder="Digite su telefono" value=""><br/>
+                  <input type="email" name="email" placeholder="Digite su email" value=""><br/>
+                    <input type="text" name="usuario" placeholder="Digite su usuario" value=""><br/>
+                  <input type="password" name="contrasena" placeholder="Digite su contraseña" value=""><br/>
+                  <select name="rol">
+                      <option value="0">Seleccione</option>
+                      <option value="admin">Administrador</option>
+                      <option value="visitante">Visitante</option>
+                  </select>
+                  <input type="button" id="btnCrearUsuario" name="btnCrearUsuario" value="Crear Usuario">
+              </form>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <Center>
+        <div class="row featurette" id="#3">
           <div class="form-busqueda">
           <form id="frmBuscaUsuario" name="frmBuscaUsuario" method="post" action="">
-            <h3>Formulario de Modificación</h3>
-              <input  class="form-control" type="text" name="cedula_busqueda" placeholder="Digite la cedula" value="">
-              <input class="btn btn-primary" type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Usuario"> <br>
-  <input class="form-control" type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
-
+              <input type="email" name="email_busqueda" placeholder="Digite el email" value="">
+              <input type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
+              <input type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Usuario">
           </form>
-
       </div>
-
       <div class="form-datos">
       </div>
-        </Center>
         </div>
 
         <hr class="featurette-divider">
@@ -136,10 +139,6 @@ $Usuario = new ClasePersona();
       <footer class="container">
 
         <p> 2017 Stephanie <a href="MenuPrincipalAdmin.php">Menu principal</a></p>
-        <form name="frmLogout" method="post" action="FuncionesGenerales.php">
-              <input type="hidden" name="accion" value="logout">
-              <input  class="btn btn-default"type="submit" name="btnLogout" value="Cerrar Sesión">
-          </form>
       </footer>
 
     </main>

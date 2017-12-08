@@ -1,13 +1,13 @@
 <?php
 require_once './Conexion/Conexion.php';
-include './Clases/ClaseCompra.php';
-$Usuario = new ClaseCompra();
+include './Clases/ClaseProducto.php';
+$Usuario = new ClaseProducto();
 ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mantenimiento Compra</title>
+    <title>Mantenimiento Producto</title>
     <link rel="icon" href="Imagenes/2.png">
      <!-- Bootstrap core CSS -->
      <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,11 +19,27 @@ $Usuario = new ClaseCompra();
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Mantenimiento Compra</a>
+        <a class="navbar-brand" href="#">Mantenimiento Producto</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#1">Lista Articulos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#2">Crear Articulo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#3">Modificación</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
 
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerra Sesión</button>
+          </form>
+        </div>
       </nav>
     </header>
 
@@ -36,31 +52,34 @@ $Usuario = new ClaseCompra();
 
         <div class="row featurette" id="#1">
           <div class="container" align="center">
-          <h2>Resgistro de Compra</h2>
- <table class="table table-striped" >
+          <h2>Lista de Articulos</h2>
+ <p>Productos en el inventario:</p>
+ <table class="table table-dark table-hover" >
 
   <?php
-  $resultado = $Usuario->ListarCompras();
+  $resultado = $Usuario->ListarArticulos();
   if ($resultado["valido"]) {
 
-    echo "<tr class='table-info' >"
-."<td>Id_Usuario</td>"
-."<td>Id_Articulo</td>"
-."<td>Numero Factura</td>"
-."<td>Fecha de Compra</td>"
-
+    echo "<tr class='table-danger' >"
+."<td>Codigo</td>"
+."<td>marca</td>"
+."<td>descripcion</td>"
+."<td>precio</td>"
+."<td>cantidad</td>"
 
 ."</tr>";
       foreach ($resultado["datos"] as $usuario) {
         echo "<tr class='table-warning'>"
- ."<td>".$usuario['id_usuario']."</td>"
-  ."<td>".$usuario['id-articulo']."</td>"
- ."<td>".$usuario['num_factura']."</td>"
- ."<td>".$usuario['fecha_compra']."</td>"
+ ."<td>".$usuario['codigo']."</td>"
+  ."<td>".$usuario['marca']."</td>"
+ ."<td>".$usuario['descripcion']."</td>"
+ ."<td>".$usuario['precio']."</td>"
+ ."<td>".$usuario['cantidad']."</td>"
+
  ."</tr>";
       }
   } else {
-      echo "<div><p>No hay registro en la base datos</p></div>";
+      echo "<div><p>No  en el sistema.</p></div>";
   }
   ?>
 </table>
@@ -74,10 +93,10 @@ $Usuario = new ClaseCompra();
 
         <div class="row featurette" id="#3">
           <div class="form-busqueda">
-          <form id="frmBuscaCompra" name="frmBuscaCompra" method="post" action="">
-              <input class="form-control" type="text" name="factura_busqueda" placeholder="Digite el N° Factura" value="">
-              <input class="form-control" type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
-              <input  class="btn btn-primary"type="button" id="btnBuscarCompra" name="btnBuscarCompra" value="Buscar Compra">
+          <form id="frmBuscaUsuario" name="frmBuscaUsuario" method="post" action="">
+              <input type="email" name="email_busqueda" placeholder="Digite el email" value="">
+              <input type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
+              <input type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Usuario">
           </form>
       </div>
       <div class="form-datos">
@@ -95,10 +114,6 @@ $Usuario = new ClaseCompra();
       <footer class="container">
 
         <p> 2017 Stephanie <a href="MenuPrincipalAdmin.php">Menu principal</a></p>
-        <form name="frmLogout" method="post" action="FuncionesGenerales.php">
-              <input type="hidden" name="accion" value="logout">
-              <input  class="btn btn-default"type="submit" name="btnLogout" value="Cerrar Sesión">
-          </form>
       </footer>
 
     </main>

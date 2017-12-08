@@ -2,6 +2,6 @@
 session_start();
 
 if(!isset($_SESSION["datos-usuario"])){
-    header("Location:Index.php");
+    header("Location:index.html");
 }
 ?>
