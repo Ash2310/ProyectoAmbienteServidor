@@ -23,23 +23,7 @@ $Usuario = new ClaseProducto();
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#1">Lista Articulos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#2">Crear Articulo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#3">Modificación</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerra Sesión</button>
-          </form>
-        </div>
       </nav>
     </header>
 
@@ -54,13 +38,13 @@ $Usuario = new ClaseProducto();
           <div class="container" align="center">
           <h2>Lista de Articulos</h2>
  <p>Productos en el inventario:</p>
- <table class="table table-dark table-hover" >
+ <table class="table table-striped" >
 
   <?php
   $resultado = $Usuario->ListarArticulos();
   if ($resultado["valido"]) {
 
-    echo "<tr class='table-danger' >"
+    echo "<tr class='table-info' >"
 ."<td>Codigo</td>"
 ."<td>marca</td>"
 ."<td>descripcion</td>"
@@ -69,7 +53,7 @@ $Usuario = new ClaseProducto();
 
 ."</tr>";
       foreach ($resultado["datos"] as $usuario) {
-        echo "<tr class='table-warning'>"
+        echo "<tr>"
  ."<td>".$usuario['codigo']."</td>"
   ."<td>".$usuario['marca']."</td>"
  ."<td>".$usuario['descripcion']."</td>"
@@ -91,32 +75,29 @@ $Usuario = new ClaseProducto();
         <hr class="featurette-divider">
 
         <div class="row featurette" id="#2">
-          <form name="frmCreararticulo" method="POST" action="ProcesaArticulo.php">
-                <input type="text" name="id" class="form-control" placeholder="Digite el id del articulo" value=""><br/>
-                <input type="text" name="nombre" class="form-control" placeholder="Digite el nombre del Articulo" value=""><br/>
-                <input type="text" name="descripcion" class="form-control" placeholder="Digite la descripcion de articulo" value=""><br/>
-                <input type="text" name="precio" class="form-control" placeholder="Digite el precio del articulo" value=""><br/>
-                <select name="categoria" class="form-control">
-                    <option value="0">Seleccione</option>
+          <Center>
+          <form name="frmCreararticulo" method="POST" action="">
+                <input type="text" name="Codigo" class="form-control" placeholder="Digite el codigo del articulo" value=""><br/>
+                <input type="text" name="Marca" class="form-control" placeholder="Digite el nombre del Articulo" value=""><br/>
+                <input type="text" name="Descripcion" class="form-control" placeholder="Digite la descripcion de articulo" value=""><br/>
+                <input type="text" name="Precio" class="form-control" placeholder="Digite el precio del articulo" value=""><br/>
+                <input type="text" name="Cantidad" class="form-control" placeholder="Digite la cantidad de articulos disponibles" value=""><br/>
+                <input type="text" name="imagenp" class="form-control" placeholder="Digite el nombre de la imagen" value=""><br/>
 
-                    <option value="Plata">Plata</option>
-                      <option value="Oro">Oro</option>
-                        <option value="Acero">Acero</option>
-                </select>
-                      <input type="hidden" name="accion" value="crear-articulo">
                 <input type="submit" name="btnCrearArticulo" value="Crear Articulo" class="btn btn-info">
 
             </form>
+          </Center>
         </div>
 
         <hr class="featurette-divider">
 
         <div class="row featurette" id="#3">
           <div class="form-busqueda">
-          <form id="frmBuscaUsuario" name="frmBuscaUsuario" method="post" action="">
-              <input type="email" name="email_busqueda" placeholder="Digite el email" value="">
+          <form id="frmBuscaArticulo" name="frmBuscaArticulo" method="post" action="">
+              <input class="form-control" type="text" name="codigo_busqueda" placeholder="Digite el email" value="">
               <input type="hidden" id="tipoForm" name="tipoForm" value="actualizar">
-              <input type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Usuario">
+              <input class="btn btn-primary" type="button" id="btnBuscaUsuario" name="btnBuscaUsuario" value="Buscar Articulo">
           </form>
       </div>
       <div class="form-datos">
@@ -134,6 +115,10 @@ $Usuario = new ClaseProducto();
       <footer class="container">
 
         <p> 2017 Stephanie <a href="MenuPrincipalAdmin.php">Menu principal</a></p>
+        <form name="frmLogout" method="post" action="FuncionesGenerales.php">
+              <input type="hidden" name="accion" value="logout">
+              <input  class="btn btn-default"type="submit" name="btnLogout" value="Cerrar Sesión">
+          </form>
       </footer>
 
     </main>

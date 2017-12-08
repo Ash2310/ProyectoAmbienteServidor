@@ -14,7 +14,7 @@ $(function () {
             data: $_form.serialize() + "&accion=login",
             success: function (data) {
                 if (data.valido) {
-                    window.location = "menu-principal.php";
+                    window.location = "login.php";
                 } else {
                     alert("Usuario no existe en el sistema");
                 }
@@ -71,13 +71,20 @@ $(function () {
                 success: function (data) {
                     if (data.valido) {
                         $_html = '<form id="frmDatos" name="frmDatos" method="post" action="">';
-                        $_html += '<input type="text" name="cedula" placeholder="Digite su cédula" value="' + data.datos.cedula + '"' + readonly + '><br/>';
-                        $_html += '<input type="text" name="nombre" placeholder="Digite su nombre" value="' + data.datos.nombre + '"' + readonly + '><br/>';
-                        $_html += '<input type="text" name="apellido1" placeholder="Digite su primer apellido" value="' + data.datos.apellido1 + '"' + readonly + '><br/>';
-                        $_html += '<input type="text" name="apellido2" placeholder="Digite su segundo apellido" value="' + data.datos.apellido2 + '"' + readonly + '><br/>';
-                        $_html += '<input type="email" name="email" placeholder="Digite su email" value="' + data.datos.email + '"' + readonly + '><br/>';
-                        $_html += '<input type="password" id="password" name="password" value="' + data.datos.password + '"' + readonly + '><br/>';
-                        $_html += '<input type="button" id="' + btn + '" name="' + btn + '" value="' + accion + '">';
+                        $_html += '<input class="form-control" type="text" name="cedula" placeholder="Digite su Cédula" value="' + data.datos.cedula + '"' + readonly + '><br/>';
+                        $_html += '<input class="form-control" type="text" name="nombre" placeholder="Digite su Nombre" value="' + data.datos.nombre + '"' + readonly + '><br/>';
+                        $_html += '<input class="form-control" type="text" name="apellidos" placeholder="Digite sus Apellidos" value="' + data.datos.apellidos + '"' + readonly + '><br/>';
+                        $_html += '<input class="form-control" type="text" name="telefono" placeholder="Digite su Teléfono" value="' + data.datos.telefono + '"' + readonly + '><br/>';
+                        $_html += '<input class="form-control" type="email" name="email" placeholder="Digite su Email" value="' + data.datos.email + '"' + readonly + '><br/>';
+                              $_html += '<input class="form-control" type="text" name="usuario" placeholder="Digite su Usuario" value="' + data.datos.usuario + '"' + readonly + '><br/>';
+                        $_html += '<input class="form-control" type="password" id="contrasena" name="contrasena" value="' + data.datos.contrasena + '"' + readonly + '><br/>';
+
+                        $_html += '<select class="form-control" name="rol">';
+                        $_html += '<option value="0">Seleccione</option>';
+                        $_html += "<option value='admin' " + adminselected + ">Administrador</option>";
+                        $_html += "<option value='visitante' " + visitanteselected + ">Visitante</option>";
+                        $_html += '</select>';
+
                         var adminselected = "";
                         var visitanteselected = "";
                         if (data.datos.rol == "admin") {
@@ -86,11 +93,8 @@ $(function () {
                         if (data.datos.rol == "visitante") {
                             visitanteselected = "selected";
                         }
-                        $_html += '<select name="rol">';
-                        $_html += '<option value="0">Seleccione</option>';
-                        $_html += "<option value='admin' " + adminselected + ">Administrador</option>";
-                        $_html += "<option value='visitante' " + visitanteselected + ">Visitante</option>";
-                        $_html += '</select>';
+                        $_html += '<input class="btn btn-success" type="button" id="' + btn + '" name="' + btn + '" value="' + accion + '">';
+                        $_html += '<input class="btn btn-primary" type="button" id="btnEliminarUsuario" name"btnEliminarUsuario"  value="Eliminar">'+'<br/>';
                         $_html += '<input type="hidden" id="id_usuario" name="id_usuario" value="' + data.datos.id + '"' + readonly + '><br/>';
                         $_html += '</form>';
                         $(".form-datos").append($_html);
@@ -108,7 +112,7 @@ $(function () {
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: 'procesa_usuarios.php',
+            url: 'FuncionesGenerales.php',
             data: $_form.serialize() + '&accion=eliminar-usuario',
             success: function (data) {
                 if (data) {
@@ -127,7 +131,7 @@ $(function () {
             async: false,
             type: 'post',
             dataType: 'json',
-            url: 'procesa_usuarios.php',
+            url: 'FuncionesGenerales.php',
             data: $_form.serialize() + '&accion=valida-email',
             success: function (data) {
                 resultado = data.valido;
@@ -141,7 +145,7 @@ $(function () {
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: 'procesa_usuarios.php',
+            url: 'FuncionesGenerales.php',
             data: $_form.serialize() + '&accion=actualizar-usuario',
             success: function (data) {
                 if (data.valido) {

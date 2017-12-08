@@ -3,23 +3,25 @@
 Class ClaseProducto{
     /* ===== Atributos ====== */
 
-    private $id;
+    private $Idp;
     private $Codigo;
-    private $marca;
-    private $descripcion;
-    private $precio;
-    private $cantidad;
+    private $Marca;
+    private $Descripcion;
+    private $Precio;
+    private $Cantidad;
+    private $imagenp;
 
 
     /* ===== Constructor ====== */
 
-    function ClaseProducto() {
-        $this->id = "";
+    function ClaseProductos() {
+        $this->Idp = "";
         $this->Codigo = "";
-        $this->marca = "";
-        $this->descripcion = "";
-        $this->precio = "";
-        $this->cantidad = "";
+        $this->Marca = "";
+        $this->Descripcion = "";
+        $this->Precio = "";
+        $this->Cantidad = "";
+        $this->imagenp ="";
     }
 
 
@@ -27,8 +29,8 @@ Class ClaseProducto{
         require './Conexion/conexion.php';
 
         $retorno = array();
-        $sql = "INSERT INTO tbl_articulo (Codigo,marca,descripcion,precio,cantidad)";
-        $sql .= "VALUES ('" .$datos['id'] . "','" . $datos['Codigo'] . "','" . $datos['marca'] . "','"  . $datos['descripcion'] . "','" . $datos['precio']."','" . $datos['cantidad']. "' )";;
+        $sql = "INSERT INTO tbl_articulo (Codigo,Marca,Descripcion,Precio,Cantidad,imagenp)";
+        $sql .= "VALUES ('" .$datos['Idp'] . "','" . $datos['Codigo'] . "','" . $datos['Marca'] . "','"  . $datos['Descripcion'] ."','" . $datos['imagenp']. "','" . $datos['Precio']."','" .$datos['Cantidad']. "' )";
 
 
         $resultado = $BD->query($sql);
