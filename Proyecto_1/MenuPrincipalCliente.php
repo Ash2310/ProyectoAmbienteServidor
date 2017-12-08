@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <html lang="en">
 <head>
  <meta charset="utf-8">
@@ -69,7 +73,7 @@
             <img class="rounded-circle" src="Imagenes/1205.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Carrito de Compras</h2>
 
-            <p><a class="btn btn-secondary" href="#" role="button">Seleccionar</a></p>
+            <p><a class="btn btn-secondary" href="Catalogo.php" role="button">Seleccionar</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
